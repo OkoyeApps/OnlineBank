@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ATM.Infrastructure.Entities.Customer>
+<div class="table-responsive">
+    <table class="table table-bordered table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>First name</th>
+                <th>Last name</th>
+                <th> Email</th>
+                <th>Phone number</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+            <tr>
+                <td>@customer.Firstname</td>
+                <td>@customer.Lastname</td>
+                <td>@customer.User.Email</td>
+                <td></td>
+
+            </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
