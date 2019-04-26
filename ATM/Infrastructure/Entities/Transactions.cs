@@ -13,10 +13,11 @@ namespace ATM.Infrastructure.Entities
     {
         public int Id { get; set; }
         public decimal Amount { get; set; }
-        public decimal CurrentBalance { get; set; }
+        public decimal PreviousBalance { get; set; }
+        public decimal NewBalance { get; set; }
         public string UserId { get; set; }
         public int CustomerId { get; set; }
-        public int AccountId { get; set; }     
+        public string AccountId { get; set; }     
         public TrancationEnum TransactionType { get; set; }
         public DateTime TimeOfTransaction { get; set; } = DateTime.Now;
         public Customer Customer { get; set; }

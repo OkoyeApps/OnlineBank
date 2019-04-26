@@ -46,7 +46,7 @@ namespace ATM.Infrastructure.Services
             string newAccountNumber = string.Empty;
             if(lastAccountNumber != null)
             {
-                newAccountNumber = format + DateTime.Now.Year +  (lastAccountNumber.Count += 1);
+                newAccountNumber = format + DateTime.Now.Year +  (lastAccountNumber.Count + 1);
             }
             else
             {

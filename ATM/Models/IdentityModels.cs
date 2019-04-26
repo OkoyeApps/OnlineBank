@@ -35,5 +35,6 @@ namespace ATM.Models
         }
         public DbSet<Account> Account { get; set; }
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
     }
 }

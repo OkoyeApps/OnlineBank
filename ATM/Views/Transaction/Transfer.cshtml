@@ -1,0 +1,31 @@
+﻿@model  ATM.Infrastructure.ViewModels.TransferFundViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Transfer","Transaction"))
+{
+<div class="row">
+    <div class="form-group">
+        <label for="accountnumber" class="col-md-2">Account Number</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="AccountNumber" placeholder="Account number" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="amount" class="col-md-2">Amount</label>
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="Amount" placeholder="Amount" />
+        </div>
+    </div>
+    <div>
+    <br/>
+    <input type="submit"  value="Transfer" class="btn btn-primary col-lg-offset-4"/>
+
+    </div>
+</div>
+    
+}
+
+

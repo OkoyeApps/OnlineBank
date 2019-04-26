@@ -8,6 +8,7 @@ namespace ATM.Infrastructure.Enum
     public enum TrancationEnum
     {
         Deposit = 1,
-        Withdrawal = 2
+        Withdrawal = 2,
+        Transfer = 3
     }
 }
