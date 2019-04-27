@@ -189,6 +189,7 @@
     <Compile Include="Infrastructure\Services\CustomerService.cs" />
     <Compile Include="Infrastructure\Services\TransactionService.cs" />
     <Compile Include="Infrastructure\ViewModels\RegisterCustomerViewModel.cs" />
+    <Compile Include="Infrastructure\ViewModels\TempdataClass.cs" />
     <Compile Include="Infrastructure\ViewModels\TransactionViewModel.cs" />
     <Compile Include="Migrations\201904131437168_InitialCreate.cs" />
     <Compile Include="Migrations\201904131437168_InitialCreate.Designer.cs">
@@ -266,10 +267,13 @@
     <Content Include="Views\Admin\CreateCustomer.cshtml" />
     <Content Include="Views\Admin\AllCustomers.cshtml" />
     <Content Include="Views\Transaction\Transfer.cshtml" />
+    <Content Include="Views\Transaction\Withdraw.cshtml" />
+    <Content Include="Views\Transaction\Accountstatement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

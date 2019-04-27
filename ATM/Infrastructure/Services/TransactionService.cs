@@ -3,6 +3,8 @@ using ATM.Infrastructure.Enum;
 using ATM.Models;
 using Microsoft.AspNet.Identity;
 using System;
+using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -106,6 +108,25 @@ namespace ATM.Infrastructure.Services
             }
             db.Entry(accountToUpdate).State = System.Data.Entity.EntityState.Modified;
             await db.SaveChangesAsync();
+
+        }      
+        
+        public async Task<List<Transactions>> GetAllUserTransaction(string accountId,
+            int pageNumber = 0, int pageSize = 5)
+        {
+            return await db.Transactions
+               .Include("Customer").Include("Account").Include("User")
+                .Where(x => x.AccountId == accountId).OrderBy(x=>x.TimeOfTransaction)
+                .Skip(pageSize * pageNumber).Take(pageSize).ToListAsync();
         }
+
+
+        //public int checkEnum(int[] numbers)
+        //{
+        //    foreach(int number in numbers)
+        //    {
+        //       return yield number;
+        //    }
+        //}
     }
 }

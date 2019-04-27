@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-offset-5">
+<form action="@Url.Action("Withdraw", "Transaction")" method="post">
+    <div class="form-group">
+        <label for="amount" class="control-label col-md-2">Amount</label>
+        <div class="col-md-10">
+            <input type="text" name="amount" class="form-control" placeholder="enter amount" />
+        </div>
+    </div>
+    <div class="col-md-5">
+        <input type="submit" value="Withdraw" class="btn btn-success" />
+    </div>
+
+</form>
+</div>
+
+

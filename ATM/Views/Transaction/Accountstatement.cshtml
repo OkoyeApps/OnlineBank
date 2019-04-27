@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ATM.Infrastructure.Entities.Transactions>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-md-12 table-responsive">
+        @{ 
+            int counter = 1;
+            string username = Model.ElementAtOrDefault(0)?.Customer.Firstname;
+            string AccountNumber = Model.ElementAtOrDefault(0)?.AccountId;
+        }
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>previous Balance</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>New Balance</th>
+                    <th>Done by</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6">
+                        Account statement for @username, Account Number : @AccountNumber
+                    </td>
+                </tr>
+                @foreach (var transaction in Model)
+                {
+                    <tr>
+                        <td>@counter</td>
+                        <td>@transaction.PreviousBalance</td>
+                        <td>@transaction.Amount</td>
+                        <td>@Enum.GetName(typeof(ATM.Infrastructure.Enum.TrancationEnum), transaction.TransactionType)</td>
+                        <td>@transaction.NewBalance</td>
+                        <td>@transaction.User.Email</td>
+                        <td>@transaction.TimeOfTransaction.ToLongDateString()</td>
+                    </tr>
+                    counter++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
