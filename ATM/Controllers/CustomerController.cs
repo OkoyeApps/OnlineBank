@@ -16,12 +16,12 @@ namespace ATM.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Deposit()
+        public ActionResult Deposit()
         {
             return View();
         }
 
-        public async Task<ActionResult> Withdrawal()
+        public ActionResult Withdrawal()
         {
             return View();
         }

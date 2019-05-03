@@ -30,7 +30,7 @@ namespace ATM.Controllers
             return View();
         }
 
-        public async Task<ActionResult> CreateCustomer()
+        public ActionResult CreateCustomer()
         {
             return View();
         }

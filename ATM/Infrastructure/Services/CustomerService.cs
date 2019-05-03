@@ -9,7 +9,7 @@ using System.Web;
 
 namespace ATM.Infrastructure.Services
 {
-    public class CustomerService
+    public class CustomerService : IDisposable
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         public async Task<int> AddCustomer(RegisterCustomerViewModel model, string UserId)
@@ -58,6 +58,11 @@ namespace ATM.Infrastructure.Services
         public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
             return await Task.Factory.StartNew(() => db.Customer.ToList());
+        }
+
+        public void Dispose()
+        {
+            ((IDisposable)db).Dispose();
         }
     }
 }

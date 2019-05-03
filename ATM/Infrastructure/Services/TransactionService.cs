@@ -11,7 +11,7 @@ using System.Web;
 
 namespace ATM.Infrastructure.Services
 {
-    public class TransactionService
+    public class TransactionService : IDisposable
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         //Get Sender Dertails
@@ -120,13 +120,9 @@ namespace ATM.Infrastructure.Services
                 .Skip(pageSize * pageNumber).Take(pageSize).ToListAsync();
         }
 
-
-        //public int checkEnum(int[] numbers)
-        //{
-        //    foreach(int number in numbers)
-        //    {
-        //       return yield number;
-        //    }
-        //}
+        public void Dispose()
+        {
+            ((IDisposable)db).Dispose();
+        }
     }
 }
