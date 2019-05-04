@@ -9,13 +9,13 @@ using System.Web;
 
 namespace Identity.Infrastructure
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<AppUser>
     {
         public ApplicationDbContext() : base ("defaultConnection")
         {
         }
 
-        public DbSet<Transaction> Transaction { get; set; }
+        //public DbSet<Transaction> Transaction { get; set; }
         static ApplicationDbContext ()
         {
             Database.SetInitializer<ApplicationDbContext>(new IdentityDbInit());
@@ -26,7 +26,7 @@ namespace Identity.Infrastructure
         }
     }
 
-    public class IdentityDbInit : DropCreateDatabaseAlways<ApplicationDbContext>
+    public class IdentityDbInit : DropCreateDatabaseIfModelChanges<ApplicationDbContext>
     {
         protected override void Seed(ApplicationDbContext context)
         {

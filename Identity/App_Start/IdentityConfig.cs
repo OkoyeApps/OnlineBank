@@ -14,6 +14,7 @@ namespace Identity
         {
             app.CreatePerOwinContext<ApplicationDbContext>(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             app.UseCookieAuthentication(
                 new Microsoft.Owin.Security.Cookies.CookieAuthenticationOptions

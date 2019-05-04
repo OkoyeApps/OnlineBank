@@ -1,4 +1,5 @@
-﻿using Identity.Models;
+﻿using Identity.Infrastructure.Validators;
+using Identity.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
@@ -22,6 +23,22 @@ namespace Identity.Infrastructure
         {
             ApplicationDbContext db = context.Get<ApplicationDbContext>();
             ApplicationUserManager manager = new ApplicationUserManager(new UserStore<AppUser>(db));
+
+            manager.PasswordValidator = new CustomPasswordValidator
+            {
+                RequireDigit = true,
+                RequiredLength = 4,
+                RequireLowercase = true,
+                RequireNonLetterOrDigit = true,
+                RequireUppercase = true
+            };
+            manager.UserValidator = new CustomUserValidator(manager)
+            {
+                RequireUniqueEmail = true,
+                AllowOnlyAlphanumericUserNames = true
+            };
+
+
             return manager;
         }
     }

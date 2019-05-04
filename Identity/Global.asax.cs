@@ -15,7 +15,7 @@ namespace Identity
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            Database.SetInitializer(new IdentityDbInit());
+
         }
     }
 }
